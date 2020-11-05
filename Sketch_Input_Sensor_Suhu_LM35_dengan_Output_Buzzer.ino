@@ -23,6 +23,16 @@ void loop() {
 
 if(temp_C >= 26.0)
 {
+  Serial.println("WARNING, SISTEM PANAS");
+  digitalWrite(R_LED, HIGH);
+  analogWrite(Buz, 20);
+  delay(2000);
+  digitalWrite(R_LED, LOW);
+  analogWrite(Buz, 0);
+  delay(2000);
+}
+else if (temp_C <= 25.0)
+{
   Serial.println("WARNING, SISTEM DINGIN");
   digitalWrite(B_LED, HIGH);
   analogWrite(Buz, 80);
@@ -30,7 +40,7 @@ if(temp_C >= 26.0)
   digitalWrite(B_LED, LOW);
   analogWrite(Buz, 0);
   delay(2000);
-}
+} 
 else
 {
   Serial.println("System Berfungsi BAIK");
